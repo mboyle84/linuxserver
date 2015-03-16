@@ -8,7 +8,7 @@ wget https://github.com/RandomStorm/DVWA/archive/v1.0.8.zip  > /dev/null 2>&1
 sudo unzip v1.0.8.zip > /dev/null 2>&1
 sudo mv /var/www/demo.com/DVWA-1.0.8/ /var/www/
 sudo rm -r /var/www/demo.com/
-sudo mv /var/www/DVWA-1.0.8/ /var/www/demo/
+sudo mv /var/www/DVWA-1.0.8/ /var/www/demo.com/
 cd /var/www/demo.com
 sudo find . -type f -exec chmod 655 {} \;
 sudo find . -type d -exec chmod 755 {} \;
