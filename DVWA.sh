@@ -1,3 +1,8 @@
+DBPASSWD=vagrant
+DBNAME=dvwa
+DBUSER=dvwa
+DBdvwaPWD=p@ssw0rd
+
 cd /var/www
 sudo mkdir demo.com
 cd /var/www/demo.com
@@ -14,5 +19,49 @@ sudo find . -type f -exec chmod 655 {} \;
 sudo find . -type d -exec chmod 755 {} \;
 sudo chown -R www-data:www-data /var/www/demo.com/
 sudo service apache2 restart
-echo -e "\n--- DVWA setup and ready to be configured hit local host on port 80 or redirect port for vagrantfile ---\n"
+echo -e "\n--- DVWA is setup on port 80, configuring DVWA for enviroment ---\n"
+echo -e "\n--- Setting up dvwa db and users ---\n"
+mysql -uroot -p$DBPASSWD -e "CREATE DATABASE $DBNAME;"
+mysql -uroot -p$DBPASSWD -e "grant all privileges on $DBNAME.* to '$DBUSER'@'localhost' identified by '$DBdvwaPWD';"
+mysql -uroot -p$DBPASSWD -e "FLUSH PRIVILEGES;"
+
+
+sudo cat > /var/www/demo.com/config/config.inc.php << "EOF"
+<?php
+
+# If you are having problems connecting to the MySQL database and all of the variables below are correct
+# try changing the 'db_server' variable from localhost to 127.0.0.1. Fixes a problem due to sockets.
+# Thanks to digininja for the fix.
+
+# Database management system to use
+
+$DBMS = 'MySQL';
+#$DBMS = 'PGSQL';
+
+# Database variables
+# WARNING: The database specified under db_database WILL BE ENTIRELY DELETED during setup.
+# Please use a database dedicated to DVWA.
+
+$_DVWA = array();
+$_DVWA[ 'db_server' ] = 'localhost';
+$_DVWA[ 'db_database' ] = 'dvwa';
+$_DVWA[ 'db_user' ] = 'dvwa';
+$_DVWA[ 'db_password' ] = 'p@ssw0rd';
+
+# Only needed for PGSQL
+$_DVWA[ 'db_port' ] = '5432';
+
+# ReCAPTCHA Settings
+# Get your keys at https://www.google.com/recaptcha/admin/create
+$_DVWA['recaptcha_public_key'] = "";
+$_DVWA['recaptcha_private_key'] = "";
+
+# Default Security Level
+# The default is high, you may wish to set this to either low or medium.
+# If you specify an invalid level, DVWA will default to high.
+$_DVWA['default_security_level'] = "high";
+
+?>
+
+EOF
 
