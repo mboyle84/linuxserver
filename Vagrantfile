@@ -33,12 +33,13 @@ config.ssh.password="vagrant"
   
 #Installs Apache, PHPmyadmin, MYSQL, standard LAMP for joomla site replication
 config.vm.provision :shell, path: "install-LAMP.sh"
-config.vm.provision :shell, path: "replicatewebsite.sh"
-config.vm.provision :shell, path: "install-bind9.sh"
-config.vm.provision :shell, path: "install-emailserver.sh"
-config.vm.provision :shell, path: "install-DHCP.sh"
-config.vm.provision :shell, path: "install-VLC.sh"
-config.vm.provision :shell, path: "setipandshutdown.sh"
+#config.vm.provision :shell, path: "replicatewebsite.sh"
+config.vm.provision :shell, path: "DVWA.sh"
+#config.vm.provision :shell, path: "install-bind9.sh"
+#config.vm.provision :shell, path: "install-emailserver.sh"
+#config.vm.provision :shell, path: "install-DHCP.sh"
+#config.vm.provision :shell, path: "install-VLC.sh"
+#config.vm.provision :shell, path: "setipandshutdown.sh"
 
 
 end
