@@ -11,7 +11,7 @@ RemoteSQL=x.x.x.x
 
 
 
-echo -e "\n--- Setting up our JoomaL user and db for website replication ---\n"
+echo -e "\n--- Setting up our Joomal/wordpress user and db for website replication ---\n"
 mysql -uroot -p$DBPASSWD -e "CREATE DATABASE $DBNAME;"
 mysql -uroot -p$DBPASSWD -e "grant all privileges on $DBNAME.* to '$DBUSER'@'localhost' identified by '$DBJPWD';"
 mysql -uroot -p$DBPASSWD -e "FLUSH PRIVILEGES;"
