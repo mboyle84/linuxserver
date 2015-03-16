@@ -22,8 +22,8 @@ sudo chown -R www-data:www-data /var/www/demo.com/
 echo -e "\n--- DVWA is setup on port 80, configuring DVWA for enviroment ---\n"
 echo -e "\n--- Setting up dvwa db and users ---\n"
 mysql -uroot -p$DBPASSWD -e "CREATE DATABASE $DBNAME;"
-mysql -uroot -p$DBPASSWD -e "grant all privileges on $DBNAME.* to '$DBUSER'@'localhost' identified by '$DBdvwaPWD';"
-mysql -uroot -p$DBPASSWD -e "FLUSH PRIVILEGES;"
+#mysql -uroot -p$DBPASSWD -e "grant all privileges on $DBNAME.* to '$DBUSER'@'localhost' identified by '$DBdvwaPWD';"
+#mysql -uroot -p$DBPASSWD -e "FLUSH PRIVILEGES;"
 
 
 sudo cat > /var/www/demo.com/config/config.inc.php << "EOF"
@@ -45,16 +45,16 @@ $DBMS = 'MySQL';
 $_DVWA = array();
 $_DVWA[ 'db_server' ] = 'localhost';
 $_DVWA[ 'db_database' ] = 'dvwa';
-$_DVWA[ 'db_user' ] = 'dvwa';
-$_DVWA[ 'db_password' ] = 'p@ssw0rd';
+$_DVWA[ 'db_user' ] = 'root';
+$_DVWA[ 'db_password' ] = 'vagrant';
 
 # Only needed for PGSQL
-$_DVWA[ 'db_port' ] = '5432';
+#$_DVWA[ 'db_port' ] = '5432';
 
 # ReCAPTCHA Settings
 # Get your keys at https://www.google.com/recaptcha/admin/create
-$_DVWA['recaptcha_public_key'] = "";
-$_DVWA['recaptcha_private_key'] = "";
+#$_DVWA['recaptcha_public_key'] = "";
+#$_DVWA['recaptcha_private_key'] = "";
 
 # Default Security Level
 # The default is high, you may wish to set this to either low or medium.
