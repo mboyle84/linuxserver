@@ -18,7 +18,7 @@ cd /var/www/demo.com
 sudo find . -type f -exec chmod 655 {} \;
 sudo find . -type d -exec chmod 755 {} \;
 sudo chown -R www-data:www-data /var/www/demo.com/
-sudo service apache2 restart
+
 echo -e "\n--- DVWA is setup on port 80, configuring DVWA for enviroment ---\n"
 echo -e "\n--- Setting up dvwa db and users ---\n"
 mysql -uroot -p$DBPASSWD -e "CREATE DATABASE $DBNAME;"
@@ -64,4 +64,6 @@ $_DVWA['default_security_level'] = "high";
 ?>
 
 EOF
-
+sudo service apache2 restart
+curl --data ‘create db=create+%2F+Reset+Database’ http://127.0.0.1/setup.php# --cookie PHPSESSID=1
+sudo service apache2 restart
