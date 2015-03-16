@@ -64,6 +64,5 @@ $_DVWA['default_security_level'] = "high";
 ?>
 
 EOF
-sudo service apache2 restart
-curl --data ‘create db=create+%2F+Reset+Database’ http://127.0.0.1/setup.php# --cookie PHPSESSID=1
+#curl --data ‘create db=create+%2F+Reset+Database’ http://127.0.0.1/setup.php# --cookie PHPSESSID=1  > /dev/null 2>&1
 sudo service apache2 restart
