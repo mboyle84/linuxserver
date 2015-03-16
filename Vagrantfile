@@ -5,8 +5,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 config.vm.provider "virtualbox" do |vb|
   
         #vb.gui = true
-        vb.customize ["modifyvm", :id, "--memory", "4096"]
-        vb.cpus = 8
+        vb.customize ["modifyvm", :id, "--memory", "512"]
+        vb.cpus = 1
         #Change the mac from default to not interrupt communication on network.The mac might already exist, same thing for hostname below.
         vb.customize ["modifyvm", :id, "--macaddress1", "08002789D551" ]
 end
