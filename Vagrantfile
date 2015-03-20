@@ -12,7 +12,8 @@ config.vm.provider "virtualbox" do |vb|
 end
 
 #defines Machine to use for Base
-config.vm.box = "Ubuntu1404" 
+config.vm.box = "ubuntu/trusty64" 
+#config.vm.box = "Ubuntu1404"
 
 #general network and machine settings
 config.vm.guest = :linux
