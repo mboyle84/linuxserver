@@ -1,4 +1,4 @@
-DBPASSWD=vagrant
+﻿DBPASSWD=vagrant
 DBNAME=dvwa
 DBUSER=dvwa
 DBdvwaPWD=p@ssw0rd
@@ -6,7 +6,7 @@ DBdvwaPWD=p@ssw0rd
 cd /var/www
 sudo mkdir demo.com
 cd /var/www/demo.com
-echo -e "\n--- creating a DVWA on LAMP Server base this will take sometime ---\n"
+echo -e "\n--- Setting up a DVWA on the LAMP Server base. This will take sometime ---\n"
 apt-get -qq update
 apt-get -y install unzip > /dev/null 2>&1
 wget https://github.com/RandomStorm/DVWA/archive/v1.0.8.zip  > /dev/null 2>&1
