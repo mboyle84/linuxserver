@@ -64,5 +64,6 @@ $_DVWA['default_security_level'] = "high";
 ?>
 
 EOF
+echo -e "\n--- connect to http://127.0.0.1/setup.php and run command to create db, curl auto create appears not to work  ---\n"
 #curl --data ‘create db=create+%2F+Reset+Database’ http://127.0.0.1/setup.php# --cookie PHPSESSID=1  > /dev/null 2>&1
 sudo service apache2 restart
