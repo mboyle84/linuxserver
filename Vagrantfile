@@ -18,7 +18,7 @@ config.vm.box = "ubuntu/trusty64"
 #general network and machine settings
 config.vm.guest = :linux
 #modify the host name and above mac from defaults.Otherwise, collitions could occur on the network
-#config.vm.hostname = "tradeshowserver"
+#config.vm.hostname = "lampserver"
 
 # forward ssh ports
 config.vm.network :forwarded_port, guest: 22, host: 22, id: "ssh", auto_correct: true
